@@ -3,11 +3,18 @@ from django.db.models import Q
 from .models import Room, Topic
 from .forms import RoomForm
 
-rooms = [
-    {"id": 1, "name": "Lets learn python!"},
-    {"id": 2, "name": "Design with me"},
-    {"id": 3, "name": "Frontend developers"},
-]
+# rooms = [
+#     {"id": 1, "name": "Lets learn python!"},
+#     {"id": 2, "name": "Design with me"},
+#     {"id": 3, "name": "Frontend developers"},
+# ]
+
+
+def loginPage(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+    context = {}
+    return render(request, "base/login_register.html", context)
 
 
 def home(request):
